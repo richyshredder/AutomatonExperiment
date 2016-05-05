@@ -13,10 +13,83 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\vendor">
+      <UniqueIdentifier>{703f9894-b787-4c5d-8f38-5d48e32a3213}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\base">
+      <UniqueIdentifier>{e8d85d83-b073-4088-8ba8-6b036ed137eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\base\solver">
+      <UniqueIdentifier>{38e1499a-ceb3-46a5-831a-956d4d88bd07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\base\generator">
+      <UniqueIdentifier>{be8a79d6-1c5a-4815-b3f0-a97eddfcb104}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\base\automaton">
+      <UniqueIdentifier>{4b752195-71a2-4912-a02a-e91db18f98fd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sync_game">
+      <UniqueIdentifier>{9064949c-a9c8-4409-bdd8-9f50ad3198d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sync_game\solver">
+      <UniqueIdentifier>{71fcb042-813c-4e38-8024-7619e24551ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\base\view">
+      <UniqueIdentifier>{48bf6699-0a3a-4425-b53f-dd4300d918b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sync_game\view">
+      <UniqueIdentifier>{0f3b6d43-9a4f-46da-aff6-712406a9fcd4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".gitignore">
+      <Filter>Source Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="vendor\cmdline.h">
+      <Filter>Source Files\vendor</Filter>
+    </ClInclude>
+    <ClInclude Include="base\automaton\automaton.hpp">
+      <Filter>Source Files\base\automaton</Filter>
+    </ClInclude>
+    <ClInclude Include="base\generator\generator.hpp">
+      <Filter>Source Files\base\generator</Filter>
+    </ClInclude>
+    <ClInclude Include="base\generator\simple_generator.hpp">
+      <Filter>Source Files\base\generator</Filter>
+    </ClInclude>
+    <ClInclude Include="base\solver\result.hpp">
+      <Filter>Source Files\base\solver</Filter>
+    </ClInclude>
+    <ClInclude Include="base\solver\solver.hpp">
+      <Filter>Source Files\base\solver</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_game\solver\sync_result.hpp">
+      <Filter>Source Files\sync_game\solver</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_game\solver\sync_solver.hpp">
+      <Filter>Source Files\sync_game\solver</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_game\solver\sync_graph.hpp">
+      <Filter>Source Files\sync_game\solver</Filter>
+    </ClInclude>
+    <ClInclude Include="base\constants.hpp">
+      <Filter>Source Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_game\solver\sync_search.hpp">
+      <Filter>Source Files\sync_game\solver</Filter>
+    </ClInclude>
+    <ClInclude Include="base\view\view.hpp">
+      <Filter>Source Files\base\view</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_game\view\sync_view.hpp">
+      <Filter>Source Files\sync_game\view</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
