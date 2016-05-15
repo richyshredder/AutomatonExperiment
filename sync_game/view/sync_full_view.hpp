@@ -32,7 +32,7 @@ public:
 			cout << optimal;
 			printf("\"}");
 		} else
-			printf("{\"index\": %d, \"win\": false}", index);
+			printf("{\"index\": %lld, \"win\": false}", index);
 	}
 	
 	void end() {
