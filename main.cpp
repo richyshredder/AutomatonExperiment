@@ -7,7 +7,7 @@
 #include "./sync_game/view/sync_view_factory.hpp"
 #include "./base/constants.hpp"
 
-#pragma comment(linker, "/STACK:320777216")
+#pragma comment(linker, "/STACK:64777216")
 
 using namespace std;
 
@@ -27,19 +27,15 @@ int main(int argc, const char * argv[]) {
 	cmdline::parser args = parse_args(argc, argv);
 
  	int n = args.get<int>("automaton"), m = args.get<int>("abc");
-	Generator *generator = new SimpleGenerator(n, m);
-	ViewFactory *view_factory = new SyncViewFactory();
-
+	
 	string view_type = args.get<string>("view");
-	View *view = view_factory->generate(view_type);
-	vector <Automaton> generated_array = generator->generate();
+	Solver* solver = new SyncSolver(view_type);
 
-	view->begin();
-	for (auto automaton : generated_array) {
-		Solver *solver = new SyncSolver(automaton);
-		view->add(solver->solve());
-	}
-	view->end();
+	Generator *generator = new SimpleGenerator(n, m, solver);
+
+	solver->begin();
+	generator->generate();
+	solver->end();
 
 	return 0;
 }

@@ -6,18 +6,27 @@
 #include "./sync_result.hpp"
 #include "./sync_graph.hpp"
 #include "./sync_search.hpp"
+#include "../view/sync_view_factory.hpp"
 
 using namespace std;
 
 class SyncSolver : public Solver {
-public:
-	SyncSolver(Automaton a) : Solver(a) {}
-	Result solve() {
+protected:
+	Result solve(Automaton a) {
 		SyncGraph g(a);
 		SyncSearch s(g);
 		bool result = s.search();
 		string answer = s.find_answer();
 		SyncResult r(a, answer, result);
 		return r;
+	}
+public:
+	SyncSolver(string type) : Solver(type) {
+		ViewFactory *view_factory = new SyncViewFactory();
+		view = view_factory->generate(type);
+	}
+	
+	void add(Automaton a) {
+		view->add(solve(a));
 	}
 };

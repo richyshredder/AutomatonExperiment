@@ -4,9 +4,9 @@
 #include <string>
 #include <iostream>
 
-#include "../../base/view/view.hpp"
 #include "../../base/solver/result.hpp"
 #include "../solver/sync_result.hpp"
+#include "../../base/view/view.hpp"
 
 using namespace std;
 

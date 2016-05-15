@@ -12,8 +12,10 @@
 
 using namespace std;
 
-bool compare(const pair<string, long long> &a, const pair<string, long long> &b) {
-	return a.first.length() > b.first.length();
+namespace sync_statistics {
+	bool compare(const pair<string, long long> &a, const pair<string, long long> &b) {
+		return a.first.length() > b.first.length();
+	}
 }
 
 class SyncStatisticsView : public View {
@@ -40,7 +42,7 @@ public:
 		vector <pair<string, long long>> a;
 		for (auto pair : m)
 			a.push_back(pair);
-		sort(a.begin(), a.end(), compare);
+		sort(a.begin(), a.end(), sync_statistics::compare);
 		for (auto pair : a) {
 			if (!first)
 				printf(",\n");

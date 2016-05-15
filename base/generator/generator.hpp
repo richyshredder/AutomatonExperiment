@@ -1,16 +1,15 @@
 #pragma once
 
-#include <vector>
-
 #include "../automaton/automaton.hpp"
+#include "../solver/solver.hpp"
 
 using namespace std;
 
 class Generator {
 protected:
 	int n, m;
-	vector<Automaton> list;
+	Solver* solver;
 public:
-	Generator(int n, int m) : n(n), m(m) {}
-	virtual vector<Automaton> generate() = 0;
+	Generator(int n, int m, Solver* solver) : n(n), m(m), solver(solver) {}
+	virtual void generate() = 0;
 };

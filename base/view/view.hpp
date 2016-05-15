@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../solver/result.hpp"
+#include "../automaton/automaton.hpp"
 
 using namespace std;
 
