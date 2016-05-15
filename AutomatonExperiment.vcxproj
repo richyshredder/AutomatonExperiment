@@ -73,7 +73,9 @@
     <ClInclude Include="base\automaton\automaton.hpp" />
     <ClInclude Include="base\constants.hpp" />
     <ClInclude Include="base\generator\generator.hpp" />
+    <ClInclude Include="base\generator\generator_factory.hpp" />
     <ClInclude Include="base\generator\simple_generator.hpp" />
+    <ClInclude Include="base\generator\smart_generator.hpp" />
     <ClInclude Include="base\solver\solver.hpp" />
     <ClInclude Include="sync_game\solver\sync_graph.hpp" />
     <ClInclude Include="sync_game\solver\sync_result.hpp" />

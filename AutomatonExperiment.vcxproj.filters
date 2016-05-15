@@ -97,5 +97,11 @@
     <ClInclude Include="sync_game\solver\sync_search_cell.hpp">
       <Filter>Source Files\sync_game\solver</Filter>
     </ClInclude>
+    <ClInclude Include="base\generator\generator_factory.hpp">
+      <Filter>Source Files\base\generator</Filter>
+    </ClInclude>
+    <ClInclude Include="base\generator\smart_generator.hpp">
+      <Filter>Source Files\base\generator</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
