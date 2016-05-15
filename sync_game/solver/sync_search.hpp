@@ -5,6 +5,8 @@
 #include "../../base/constants.hpp"
 #include "./sync_graph.hpp"
 
+
+
 class SyncSearch {
 private:
 	struct cell {
