@@ -15,6 +15,22 @@ private:
 
 	SyncGraph g;
 
+	inline void relax_first_player(int old_length, int new_length, int pr_letter, int pr_position, int position) {
+		if (old_length == -1 || new_length > old_length)
+			a[0][pr_position].set_move(new_length, pr_letter, position);
+		a[0][pr_position].count++;
+		if (a[0][pr_position].count == g.next(pr_position).size()) {
+			a[0][pr_position].set_result(false);
+			q.push(make_pair(0, pr_position));
+		}
+	}
+
+	inline void relax_second_player(int pr_letter, int pr_position, int position) {
+		a[1][pr_position].set_result(true);
+		a[1][pr_position].set_move(a[0][position].length + 1, pr_letter, position);
+		q.push(make_pair(1, pr_position));
+	}
+
 	void search_check(bool first_player, int position) {
 		for (int i = 0; i < (int)g.prev(position).size(); i++) {
 			pair<int, int> p = g.prev(position)[i];
@@ -23,22 +39,11 @@ private:
 
 			if (a[!first_player][pr_position].calculated)
 				continue;
-			if (first_player) {
-				int old_length = a[0][pr_position].length;
-				int new_length = a[1][position].length + 1;
-				if (old_length == -1 || new_length > old_length)
-					a[0][pr_position].set_move(new_length, pr_letter, position);
-				a[0][pr_position].count++;
-				if (a[0][pr_position].count == g.next(pr_position).size()) {
-					a[0][pr_position].set_result(false);
-					q.push(make_pair(0, pr_position));
-				}
-			}
-			else {
-				a[1][pr_position].set_result(true);
-				a[1][pr_position].set_move(a[0][position].length + 1, pr_letter, position);
-				q.push(make_pair(1, pr_position));
-			}
+
+			if (first_player)
+				relax_first_player(a[0][pr_position].length, a[1][position].length + 1, pr_letter, pr_position, position);
+			else
+				relax_second_player(pr_letter, pr_position, position);
 		}
 	}
 
