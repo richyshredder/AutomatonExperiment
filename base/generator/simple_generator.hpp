@@ -14,7 +14,6 @@ public:
 		list.clear();
 		int count = (int)pow(n, m * n);
 		for (int i = 0; i < count; i++) {
-			printf("%d", i);
 			list.push_back(Automaton(n, m, i));
 		}
 		return list;

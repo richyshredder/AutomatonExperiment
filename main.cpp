@@ -6,7 +6,7 @@
 #include "sync_game/solver/sync_solver.hpp"
 #include "sync_game/view/sync_view.hpp"
 
-#pragma comment(linker, "/STACK:16777216")
+#pragma comment(linker, "/STACK:32777216")
 
 using namespace std;
 
@@ -25,7 +25,8 @@ cmdline::parser parse_args(int argc, const char * argv[]) {
 int main(int argc, const char * argv[]) {
 	cmdline::parser args = parse_args(argc, argv);
 
-	int n = args.get<int>("automaton"), m = args.get<int>("abc");
+ 	//int n = args.get<int>("automaton"), m = args.get<int>("abc");
+	int n = 5, m = 2;
 	Generator *generator = new SimpleGenerator(n, m);
 	View *view = new SyncView();
 

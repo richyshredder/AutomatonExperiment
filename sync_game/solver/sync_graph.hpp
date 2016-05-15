@@ -10,7 +10,7 @@ using namespace std;
 class SyncGraph {
 private:
 	Automaton a;
-	vector <pair<int, int>> n[constants::max_automaton_size], p[constants::max_automaton_size];
+	vector <pair<int, int>> n[(1 << constants::max_automaton_size)], p[(1 << constants::max_automaton_size)];
 	int graph_size;
 public:
 	SyncGraph(Automaton a) : a(a) {

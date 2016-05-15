@@ -4,17 +4,17 @@
 
 class Automaton {
 private:
-	int a[constants::max_automaton_size][50];
+	//int a[constants::max_automaton_size][constants::max_automaton_size];
 	int n, m, id;
 public:
 	Automaton(int n, int m, int id) : n(n), m(m), id(id) {
 		int current = id;
-		for (int i = 0; i < n; i++) {
+		/*for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				a[i][j] = current % n;
 				current /= n;
 			}
-		}
+		}*/
 	}
 
 	inline int size() {
@@ -30,6 +30,13 @@ public:
 	}
 
 	inline int get(int x, int y) {
-		return a[x][y];
+		int current = id;
+		for (int i = 0; i < n; i++) {
+			for (int j = 0; j < m; j++) {
+				if (i == x && j == y)
+					return current % n;
+				current /= n;
+			}
+		}
 	}
 };
