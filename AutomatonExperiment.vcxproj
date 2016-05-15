@@ -77,6 +77,7 @@
     <ClInclude Include="base\solver\solver.hpp" />
     <ClInclude Include="sync_game\solver\sync_graph.hpp" />
     <ClInclude Include="sync_game\solver\sync_result.hpp" />
+    <ClInclude Include="sync_game\solver\sync_search_cell.hpp" />
     <ClInclude Include="sync_game\solver\sync_search.hpp" />
     <ClInclude Include="sync_game\solver\sync_solver.hpp" />
     <ClInclude Include="sync_game\view\sync_full_view.hpp" />

@@ -76,9 +76,6 @@
     <ClInclude Include="base\constants.hpp">
       <Filter>Source Files\base</Filter>
     </ClInclude>
-    <ClInclude Include="sync_game\solver\sync_search.hpp">
-      <Filter>Source Files\sync_game\solver</Filter>
-    </ClInclude>
     <ClInclude Include="sync_game\view\sync_full_view.hpp">
       <Filter>Source Files\sync_game\view</Filter>
     </ClInclude>
@@ -93,6 +90,12 @@
     </ClInclude>
     <ClInclude Include="sync_game\view\sync_view.hpp">
       <Filter>Source Files\sync_game\view</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_game\solver\sync_search.hpp">
+      <Filter>Source Files\sync_game\solver</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_game\solver\sync_search_cell.hpp">
+      <Filter>Source Files\sync_game\solver</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -12,14 +12,19 @@
 using namespace std;
 
 namespace sync_statistics {
-	bool compare(const pair<string, long long> &a, const pair<string, long long> &b) {
+	struct Statistics {
+		long long count = 0;
+		long long example = 0;
+	};
+
+	bool compare(const pair<string, Statistics> &a, const pair<string, Statistics> &b) {
 		return a.first.length() > b.first.length();
 	}
 }
 
 class SyncStatisticsView : public SyncView {
 protected:
-	map <string, long long> m;
+	map <string, sync_statistics::Statistics> m;
 public:
 	
 	void begin() {
@@ -33,12 +38,13 @@ public:
 			return;
 
 		string current = r.s;
-		m[current]++;
+		m[current].count++;
+		m[current].example = r.a.index();
 	}
 	
 	void end() {
 		bool first = true;
-		vector <pair<string, long long>> a;
+		vector <pair<string, sync_statistics::Statistics>> a;
 		for (auto pair : m)
 			a.push_back(pair);
 		sort(a.begin(), a.end(), sync_statistics::compare);
@@ -46,7 +52,7 @@ public:
 			if (!first)
 				printf(",\n");
 			first = false;
-			printf("{\"count\": %lld, \"length\": %d, \"optimal\": \"", pair.second, pair.first.length());
+			printf("{\"count\": %lld, \"example\": %lld, \"length\": %d, \"optimal\": \"", pair.second.count, pair.second.example, pair.first.length());
 			cout << pair.first;
 			printf("\"}");
 		}

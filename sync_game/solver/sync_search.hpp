@@ -4,25 +4,11 @@
 
 #include "../../base/constants.hpp"
 #include "./sync_graph.hpp"
-
-
+#include "./sync_search_cell.hpp"
 
 class SyncSearch {
 private:
-	struct cell {
-		//    shows if the vertex has been calculated
-		bool calculated;
-		//    if caluclated, shows the result of user playing from this position
-		bool result;
-		//    length of optimal playing
-		int length;
-		//    if calculated and result is positive, shows which letter is chosen by user
-		int letter;
-		//    for second player: shows how many possible previous vertices have been calculated
-		int count;
-		//    next position in the optimal game
-		int next_position;
-	} a[2][1 << constants::max_automaton_size];
+	SyncSearchCell a[2][1 << constants::max_automaton_size];
 
 	// queue for search; first - player; second - position
 	queue <pair<bool, int>> q;
@@ -30,7 +16,6 @@ private:
 	SyncGraph g;
 
 	void search_check(bool first_player, int position) {
-		//for (int i = 0; i < graph[position].prev.size(); i++) {
 		for (int i = 0; i < (int)g.prev(position).size(); i++) {
 			pair<int, int> p = g.prev(position)[i];
 			int pr_position = p.first;
@@ -41,24 +26,17 @@ private:
 			if (first_player) {
 				int old_length = a[0][pr_position].length;
 				int new_length = a[1][position].length + 1;
-				if (old_length == -1 || new_length > old_length) {
-					a[0][pr_position].length = new_length;
-					a[0][pr_position].letter = pr_letter;
-					a[0][pr_position].next_position = position;
-				}
+				if (old_length == -1 || new_length > old_length)
+					a[0][pr_position].set_move(new_length, pr_letter, position);
 				a[0][pr_position].count++;
 				if (a[0][pr_position].count == g.next(pr_position).size()) {
-					a[0][pr_position].result = false;
-					a[0][pr_position].calculated = true;
+					a[0][pr_position].set_result(false);
 					q.push(make_pair(0, pr_position));
 				}
 			}
 			else {
-				a[1][pr_position].calculated = true;
-				a[1][pr_position].length = a[0][position].length + 1;
-				a[1][pr_position].letter = pr_letter;
-				a[1][pr_position].next_position = position;
-				a[1][pr_position].result = true;
+				a[1][pr_position].set_result(true);
+				a[1][pr_position].set_move(a[0][position].length + 1, pr_letter, position);
 				q.push(make_pair(1, pr_position));
 			}
 		}
@@ -67,15 +45,14 @@ private:
 public:
 	SyncSearch(SyncGraph g) : g(g) {
 		for (int k = 0; k < 2; k++)
-		for (int i = 0; i < g.size(); i++)
-			a[k][i].length = -1;
+			for (int i = 0; i < g.size(); i++)
+				a[k][i].prepare();
 		for (int i = 0; i < g.automaton().size(); i++) {
 			int current = 1 << i;
-			a[0][current].calculated = true;
+			a[0][current].set_result(false);
 			a[0][current].length = 0;
-			a[1][current].result = true;
+			a[1][current].set_result(true);
 			a[1][current].length = 0;
-			a[1][current].calculated = true;
 			q.push(make_pair(0, current));
 			q.push(make_pair(1, current));
 		}
