@@ -88,7 +88,16 @@
     <ClInclude Include="base\view\view.hpp">
       <Filter>Source Files\base\view</Filter>
     </ClInclude>
-    <ClInclude Include="sync_game\view\sync_view.hpp">
+    <ClInclude Include="base\view\view_factory.hpp">
+      <Filter>Source Files\base\view</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_game\view\sync_full_view.hpp">
+      <Filter>Source Files\sync_game\view</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_game\view\sync_view_factory.hpp">
+      <Filter>Source Files\sync_game\view</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_game\view\sync_maximum_view.hpp">
       <Filter>Source Files\sync_game\view</Filter>
     </ClInclude>
   </ItemGroup>

@@ -8,8 +8,8 @@ private:
 	int n, m, id;
 public:
 	Automaton(int n, int m, int id) : n(n), m(m), id(id) {
-		int current = id;
-		/*for (int i = 0; i < n; i++) {
+		/*int current = id;
+		for (int i = 0; i < n; i++) {
 			for (int j = 0; j < m; j++) {
 				a[i][j] = current % n;
 				current /= n;
@@ -38,5 +38,6 @@ public:
 				current /= n;
 			}
 		}
+		throw "undefined";
 	}
 };
