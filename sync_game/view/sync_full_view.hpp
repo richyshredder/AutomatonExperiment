@@ -27,10 +27,10 @@ public:
 			first = false;
 		int result = r.get_int_attr("result");
 		string optimal = r.get_string_attr("optimal");
-		int index = r.get_int_attr("index");
+		long long index = r.get_long_attr("index");
 
 		if (result) {
-			printf("{\"index\": %d, \"win\": true, \"length\": %d, \"optimal\": \"", index, optimal.length());
+			printf("{\"index\": %lld, \"win\": true, \"length\": %d, \"optimal\": \"", index, optimal.length());
 			cout << optimal;
 			printf("\"}");
 		} else

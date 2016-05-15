@@ -13,7 +13,7 @@ protected:
 public:
 	SyncResult(Automaton a, string s, bool f) : a(a) {
 		str_attr["optimal"] = s;
-		int_attr["index"] = a.index();
+		long_attr["index"] = a.index();
 		int_attr["result"] = f;
 	}
 };

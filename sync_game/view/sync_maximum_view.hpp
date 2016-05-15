@@ -14,7 +14,7 @@ class SyncMaximumView : public View {
 protected:
 	bool first;
 	string optimal;
-	int index;
+	long long index;
 public:
 	
 	void begin() {
@@ -30,14 +30,14 @@ public:
 		if (result && (first || this->optimal.length() < current.length()))
 		{
 			this->optimal = current;
-			this->index = r.get_int_attr("index");
+			this->index = r.get_long_attr("index");
 		}
 		
 		first = false;
 	}
 	
 	void end() {
-		printf("{\"index\": %d, \"win\": true, \"length\": %d, \"optimal\": \"", index, optimal.length());
+		printf("{\"index\": %lld, \"win\": true, \"length\": %d, \"optimal\": \"", index, optimal.length());
 		cout << optimal;
 		printf("\"}");
 	}

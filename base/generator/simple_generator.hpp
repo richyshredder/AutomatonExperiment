@@ -12,8 +12,8 @@ public:
 	SimpleGenerator(int n, int m) : Generator(n, m) {}
  	vector<Automaton> generate() {
 		list.clear();
-		int count = (int)pow(n, m * n);
-		for (int i = 0; i < count; i++) {
+		long long count = (long long)pow(n, m * n);
+		for (long long i = 0; i < count; i++) {
 			list.push_back(Automaton(n, m, i));
 		}
 		return list;

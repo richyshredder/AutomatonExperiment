@@ -4,18 +4,10 @@
 
 class Automaton {
 private:
-	//int a[constants::max_automaton_size][constants::max_automaton_size];
-	int n, m, id;
+	int n, m;
+	long long id;
 public:
-	Automaton(int n, int m, int id) : n(n), m(m), id(id) {
-		/*int current = id;
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				a[i][j] = current % n;
-				current /= n;
-			}
-		}*/
-	}
+	Automaton(int n, int m, long long id) : n(n), m(m), id(id) {}
 
 	inline int size() {
 		return n;
@@ -25,19 +17,7 @@ public:
 		return m;
 	}
 
-	inline int index() {
+	inline long long index() {
 		return id;
-	}
-
-	inline int get(int x, int y) {
-		int current = id;
-		for (int i = 0; i < n; i++) {
-			for (int j = 0; j < m; j++) {
-				if (i == x && j == y)
-					return current % n;
-				current /= n;
-			}
-		}
-		throw "undefined";
 	}
 };
