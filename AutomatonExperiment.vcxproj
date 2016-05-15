@@ -74,10 +74,7 @@
     <ClInclude Include="base\constants.hpp" />
     <ClInclude Include="base\generator\generator.hpp" />
     <ClInclude Include="base\generator\simple_generator.hpp" />
-    <ClInclude Include="base\solver\result.hpp" />
     <ClInclude Include="base\solver\solver.hpp" />
-    <ClInclude Include="base\view\view.hpp" />
-    <ClInclude Include="base\view\view_factory.hpp" />
     <ClInclude Include="sync_game\solver\sync_graph.hpp" />
     <ClInclude Include="sync_game\solver\sync_result.hpp" />
     <ClInclude Include="sync_game\solver\sync_search.hpp" />
@@ -85,6 +82,7 @@
     <ClInclude Include="sync_game\view\sync_full_view.hpp" />
     <ClInclude Include="sync_game\view\sync_maximum_view.hpp" />
     <ClInclude Include="sync_game\view\sync_statistics_view.hpp" />
+    <ClInclude Include="sync_game\view\sync_view.hpp" />
     <ClInclude Include="sync_game\view\sync_view_factory.hpp" />
     <ClInclude Include="vendor\cmdline.h" />
   </ItemGroup>

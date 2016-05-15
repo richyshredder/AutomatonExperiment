@@ -4,13 +4,11 @@
 #include <string>
 #include <iostream>
 
-#include "../../base/solver/result.hpp"
-#include "../solver/sync_result.hpp"
-#include "../../base/view/view.hpp"
+#include "./sync_view.hpp"
 
 using namespace std;
 
-class SyncFullView : public View {
+class SyncFullView : public SyncView {
 protected:
 	bool first;
 public:
@@ -20,14 +18,14 @@ public:
 		first = true;
 	}
 	
-	void add(Result r) {
+	void add(SyncResult r) {
 		if (!first)
 			printf(",\n");
 		else
 			first = false;
-		int result = r.get_int_attr("result");
-		string optimal = r.get_string_attr("optimal");
-		long long index = r.get_long_attr("index");
+		bool result = r.result;
+		string optimal = r.s;
+		long long index = r.a.index();
 
 		if (result) {
 			printf("{\"index\": %lld, \"win\": true, \"length\": %d, \"optimal\": \"", index, optimal.length());

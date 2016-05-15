@@ -4,13 +4,12 @@
 #include <string>
 #include <iostream>
 
-#include "../../base/view/view.hpp"
-#include "../../base/solver/result.hpp"
+#include "./sync_view.hpp"
 #include "../solver/sync_result.hpp"
 
 using namespace std;
 
-class SyncMaximumView : public View {
+class SyncMaximumView : public SyncView {
 protected:
 	bool first;
 	string optimal;
@@ -21,16 +20,16 @@ public:
 		first = true;
 	}
 	
-	void add(Result r) {
-		int result = r.get_int_attr("result");
+	void add(SyncResult r) {
+		bool result = r.result;
 		if (!result)
 			return;
 
-		string current = r.get_string_attr("optimal");
+		string current = r.s;
 		if (result && (first || this->optimal.length() < current.length()))
 		{
 			this->optimal = current;
-			this->index = r.get_long_attr("index");
+			this->index = r.a.index();
 		}
 		
 		first = false;

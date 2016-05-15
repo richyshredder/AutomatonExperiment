@@ -6,8 +6,7 @@
 #include <map>
 #include <algorithm>
 
-#include "../../base/view/view.hpp"
-#include "../../base/solver/result.hpp"
+#include "./sync_view.hpp"
 #include "../solver/sync_result.hpp"
 
 using namespace std;
@@ -18,7 +17,7 @@ namespace sync_statistics {
 	}
 }
 
-class SyncStatisticsView : public View {
+class SyncStatisticsView : public SyncView {
 protected:
 	map <string, long long> m;
 public:
@@ -28,12 +27,12 @@ public:
 		printf("[\n");
 	}
 	
-	void add(Result r) {
-		int result = r.get_int_attr("result");
+	void add(SyncResult r) {
+		bool result = r.result;
 		if (!result)
 			return;
 
-		string current = r.get_string_attr("optimal");
+		string current = r.s;
 		m[current]++;
 	}
 	

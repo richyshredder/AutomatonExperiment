@@ -34,9 +34,6 @@
     <Filter Include="Source Files\sync_game\solver">
       <UniqueIdentifier>{71fcb042-813c-4e38-8024-7619e24551ee}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\base\view">
-      <UniqueIdentifier>{48bf6699-0a3a-4425-b53f-dd4300d918b4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\sync_game\view">
       <UniqueIdentifier>{0f3b6d43-9a4f-46da-aff6-712406a9fcd4}</UniqueIdentifier>
     </Filter>
@@ -64,9 +61,6 @@
     <ClInclude Include="base\generator\simple_generator.hpp">
       <Filter>Source Files\base\generator</Filter>
     </ClInclude>
-    <ClInclude Include="base\solver\result.hpp">
-      <Filter>Source Files\base\solver</Filter>
-    </ClInclude>
     <ClInclude Include="base\solver\solver.hpp">
       <Filter>Source Files\base\solver</Filter>
     </ClInclude>
@@ -85,12 +79,6 @@
     <ClInclude Include="sync_game\solver\sync_search.hpp">
       <Filter>Source Files\sync_game\solver</Filter>
     </ClInclude>
-    <ClInclude Include="base\view\view.hpp">
-      <Filter>Source Files\base\view</Filter>
-    </ClInclude>
-    <ClInclude Include="base\view\view_factory.hpp">
-      <Filter>Source Files\base\view</Filter>
-    </ClInclude>
     <ClInclude Include="sync_game\view\sync_full_view.hpp">
       <Filter>Source Files\sync_game\view</Filter>
     </ClInclude>
@@ -101,6 +89,9 @@
       <Filter>Source Files\sync_game\view</Filter>
     </ClInclude>
     <ClInclude Include="sync_game\view\sync_statistics_view.hpp">
+      <Filter>Source Files\sync_game\view</Filter>
+    </ClInclude>
+    <ClInclude Include="sync_game\view\sync_view.hpp">
       <Filter>Source Files\sync_game\view</Filter>
     </ClInclude>
   </ItemGroup>

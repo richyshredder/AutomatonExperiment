@@ -1,22 +1,15 @@
 #pragma once
 
+#include <string>
 #include "../automaton/automaton.hpp"
-#include "../view/view.hpp"
-#include "./result.hpp"
+
+using namespace std;
 
 class Solver {
-protected:
-	View* view;
-	virtual Result solve(Automaton a) = 0;
 public:
 	virtual void add(Automaton a) = 0;
 	Solver(string type) {}
 
-	void begin() {
-		view->begin();
-	}
-
-	void end() {
-		view->end();
-	}
+	virtual void begin() = 0;
+	virtual void end() = 0;
 };

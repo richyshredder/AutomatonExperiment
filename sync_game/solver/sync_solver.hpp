@@ -12,7 +12,8 @@ using namespace std;
 
 class SyncSolver : public Solver {
 protected:
-	Result solve(Automaton a) {
+	SyncView* view;
+	SyncResult solve(Automaton a) {
 		SyncGraph g(a);
 		SyncSearch s(g);
 		bool result = s.search();
@@ -22,11 +23,20 @@ protected:
 	}
 public:
 	SyncSolver(string type) : Solver(type) {
-		ViewFactory *view_factory = new SyncViewFactory();
+		SyncViewFactory *view_factory = new SyncViewFactory();
 		view = view_factory->generate(type);
 	}
 	
 	void add(Automaton a) {
 		view->add(solve(a));
 	}
+
+	void begin() {
+		view->begin();
+	}
+
+	void end() {
+		view->end();
+	}
+
 };
