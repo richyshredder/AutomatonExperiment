@@ -84,6 +84,7 @@
     <ClInclude Include="sync_game\solver\sync_solver.hpp" />
     <ClInclude Include="sync_game\view\sync_full_view.hpp" />
     <ClInclude Include="sync_game\view\sync_maximum_view.hpp" />
+    <ClInclude Include="sync_game\view\sync_statistics_view.hpp" />
     <ClInclude Include="sync_game\view\sync_view_factory.hpp" />
     <ClInclude Include="vendor\cmdline.h" />
   </ItemGroup>

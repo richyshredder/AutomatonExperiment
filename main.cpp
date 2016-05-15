@@ -7,7 +7,7 @@
 #include "./sync_game/view/sync_view_factory.hpp"
 #include "./base/constants.hpp"
 
-#pragma comment(linker, "/STACK:32777216")
+#pragma comment(linker, "/STACK:320777216")
 
 using namespace std;
 

@@ -100,5 +100,8 @@
     <ClInclude Include="sync_game\view\sync_maximum_view.hpp">
       <Filter>Source Files\sync_game\view</Filter>
     </ClInclude>
+    <ClInclude Include="sync_game\view\sync_statistics_view.hpp">
+      <Filter>Source Files\sync_game\view</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
